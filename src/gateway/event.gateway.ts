@@ -11,6 +11,7 @@ import { Socket, Server } from 'socket.io';
 import { Logger } from '@nestjs/common';
 import { DomainService } from 'src/domain/domain.service';
 
+// Websocket connection with client
 @WebSocketGateway()
 export class EventGateway implements OnGatewayInit, OnGatewayConnection, OnGatewayDisconnect {
 
