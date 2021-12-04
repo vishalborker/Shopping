@@ -9,19 +9,19 @@ import {
 } from '@nestjs/common';
 
 import { DomainService } from './domain.service';
-
+import { CreateDomainDTO } from './domain.validation';
+ 
 @Controller('domain')
 export class DomainController {
   constructor(private readonly domainService: DomainService) {}
 
   @Post()
   async createDomain(
-    @Body('name') name: string,
-    @Body('isActive') isActive: boolean,
+    @Body() createDomainDTO: CreateDomainDTO
   ) {
     const result = await this.domainService.insertDomain(
-      name,
-      isActive,
+      createDomainDTO.name,
+      createDomainDTO.isActive,
     );
     return result;
   }

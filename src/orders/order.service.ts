@@ -12,7 +12,6 @@ export class OrderService {
 
   async getOrder(id: string) {
     const result = await this.findOrder(id);
-    console.log('Fetching records for id');
     return result;
   }
 

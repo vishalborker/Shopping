@@ -8,6 +8,7 @@ import { AppService } from './app.service';
 import { DomainModule } from './domain/domain.module';
 import { OrderModule } from './orders/order.module';
 import { EventGateway } from './gateway/event.gateway';
+import { SocketModule } from './gateway/socket.module';
 
 const DATABASE_USER = 'nestjs-test';
 const DATABASE_NAME = 'nestjs-test';
@@ -38,10 +39,14 @@ const DATABASE_HOST = 'cluster0.exkxa.mongodb.net'
     UsersModule,
     DomainModule,
     OrderModule,
+    SocketModule,
   ],
   providers: [ 
     AppService, 
     EventGateway
   ],
+  exports: [
+    EventGateway 
+  ]
 })
 export class AppModule {}
