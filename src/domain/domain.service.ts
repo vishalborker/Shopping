@@ -54,7 +54,6 @@ export class DomainService {
   }
 
   async findByDomainName(domainName: string = null): Promise<any> {
-    console.log('DomainName Recieved', domainName)
     const result = await this.domainModel.findOne({ name: { $eq: domainName }, isActive: { $eq: true } }).exec();
     return result;
   }
