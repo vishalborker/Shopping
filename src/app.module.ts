@@ -3,17 +3,16 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import { AppController } from './app.controller';
-import { UsersModule } from './users/users.module';
 import { AppService } from './app.service';
 import { DomainModule } from './domain/domain.module';
 import { OrderModule } from './orders/order.module';
 import { EventGateway } from './gateway/event.gateway';
 import { SocketModule } from './gateway/socket.module';
 
-const DATABASE_USER = 'nestjs-test';
-const DATABASE_NAME = 'nestjs-test';
-const DATABASE_PASSWORD = 'kVG5u25AGyJ0NE9Z';
-const DATABASE_HOST = 'cluster0.exkxa.mongodb.net'
+const DATABASE_USER = '';
+const DATABASE_NAME = '';
+const DATABASE_PASSWORD = '';
+const DATABASE_HOST = ''
 
 @Module({
   controllers: [AppController],
@@ -36,7 +35,6 @@ const DATABASE_HOST = 'cluster0.exkxa.mongodb.net'
       },
       inject: [ConfigService],
     }),
-    UsersModule,
     DomainModule,
     OrderModule,
     SocketModule,
